@@ -1,11 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JWT_SECRET = exports.HOST_NAME = exports.MONGO_URL = exports.PORT = void 0;
+exports.FRONTEND_URL = exports.EMAIL_PASS = exports.EMAIL_USER = exports.JWT_SECRET = exports.HOST_NAME = exports.MONGO_URL = exports.PORT = void 0;
 require("dotenv/config");
-exports.PORT = process.env.PORT;
+exports.PORT = process.env.PORT || 3001;
 // export const MONGO_URL = process.env.MONGO_URL!;
 const MONGO_USERNAME = process.env.MONGO_USERNAME;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
 exports.MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@typescriptstart.m22r0gj.mongodb.net/optProject`;
 exports.HOST_NAME = process.env.HOST_NAME;
 exports.JWT_SECRET = process.env.JWT_SECRET;
+exports.EMAIL_USER = process.env.EMAIL_USER;
+exports.EMAIL_PASS = process.env.EMAIL_PASS;
+exports.FRONTEND_URL = process.env.FRONTEND_URL;

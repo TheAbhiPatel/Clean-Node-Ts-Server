@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use("/api", router);
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.status(200).json({ message: "hey you are on my api" });
 });
 
