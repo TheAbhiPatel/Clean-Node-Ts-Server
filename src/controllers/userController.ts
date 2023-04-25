@@ -8,7 +8,7 @@ import { sendVerificationMail } from "../utils/sendMail";
 
 export const getUser = async (req: Request, res: Response) => {
   try {
-    const user = await userModel.find();
+    const user = await userModel.find({ password: 0 });
     res.status(200).json({ success: true, user });
   } catch (error) {
     res
@@ -101,7 +101,7 @@ export const verifyEmail = async (req: Request, res: Response) => {
   const { verifyToken } = req.params;
 
   try {
-    const decoded = jwt.verify(verifyToken, JWT_SECRET);
+    const decoded: any = jwt.verify(verifyToken, JWT_SECRET);
 
     if (!decoded)
       return res
@@ -196,7 +196,7 @@ export const verifyForgetPassword = async (req: Request, res: Response) => {
   const { verifyToken } = req.params;
   const { password } = req.body;
   try {
-    const decoded = await jwt.verify(verifyToken, JWT_SECRET);
+    const decoded: any = await jwt.verify(verifyToken, JWT_SECRET);
     if (!decoded)
       return res.status(401).json({
         success: false,

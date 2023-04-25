@@ -4,6 +4,7 @@ import cors from "cors";
 import { HOST_NAME, MONGO_URL, PORT } from "./config";
 import router from "./routes";
 import { connectDb } from "./connectDB.ts";
+import { string } from "zod";
 
 const app = express();
 app.use(express.json());
